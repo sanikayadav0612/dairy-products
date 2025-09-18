@@ -7,138 +7,148 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Header */
+    /* Header / Hero */
     header {
-      background-image: url("img/background img.jpg");
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("img/da.jpg");
       background-size: cover;
       background-position: center;
-      height: 350px;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: white;
       text-align: center;
-      position: relative;
-      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4);
-      overflow: hidden;
+      color: white;
+      padding: 20px;
     }
 
     header img {
-      width: 100px;
-      height: 70px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      border: 2px solid white;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeSlide 1s forwards 0.2s;
+      width: 200px;
+      height: 170px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      border: 3px solid #fff;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
     }
 
-    header h1, header h2, header h3 {
-      opacity: 0;
-      transform: translateY(20px);
+    header h1 { font-size: 2.5rem; font-weight: bold; }
+    header h2 { font-size: 1.8rem; margin: 10px 0; color: #aef727; }
+    header h3 { font-size: 1.2rem; margin-bottom: 20px; }
+    header .btn {
+      background-color: #aef727;
+      border: none;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 30px;
+      transition: 0.3s;
     }
+    header .btn:hover { background-color: #91d61f; transform: scale(1.05); }
 
-    header h1 { animation: fadeSlide 1s forwards 0.4s; }
-    header h2 { animation: fadeSlide 1s forwards 0.6s; }
-    header h3 { animation: fadeSlide 1s forwards 0.8s; }
-
-    @keyframes fadeSlide {
-      to { opacity: 1; transform: translateY(0); }
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(to right, #aef727, #88c714);
     }
+    .nav-link:hover { text-decoration: underline; }
 
-    /* Navbar hover */
-    .nav-link:hover {
-      text-decoration: underline;
-      color: #fff !important;
+    /* About */
+    #about img {
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     /* Products */
     .card {
-      transition: transform 0.3s, box-shadow 0.3s, opacity 1s;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(20px);
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     .card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
     .card-img-top {
       height: 200px;
       object-fit: cover;
-      border-bottom: 2px solid #aef727;
     }
+    .card-body { text-align: center; }
+    .price { color: #9cce46; font-weight: bold; margin-top: 10px; }
+    .buy-btn {
+      margin-top: 10px;
+      background: #aef727;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .buy-btn:hover { background: #91d61f; }
 
     /* Footer */
     footer {
-      background-color: #222;
+      background: linear-gradient(to right, #222, #444);
       color: white;
-      padding: 30px 20px;
+      padding: 40px 20px;
       text-align: center;
     }
+    footer a { color: #aef727; text-decoration: none; margin: 0 10px; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="img/logo.jpg" alt="Logo">
-    <h1>शिवशंभु सहकारी दूध उत्पादक व प्रक्रिया संघ लि.</h1>
-    <h2>चाखेल — त्याला चटक लागेल</h2>
-    <h3>Pure, Natural, Delicious</h3>
-  </header>
-
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #aef727;">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand text-white" href="#home">मुख्यपृष्ठ</a>
+      <a class="navbar-brand fw-bold text-dark" href="#">Dairista...</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-white" href="#about">आमच्याबद्दल</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#products">उत्पादने</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#contact">संपर्क</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#home">मुख्यपृष्ठ</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#about">आमच्याबद्दल</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#products">उत्पादने</a></li>
+          <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#contact">संपर्क</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="text-center py-5">
-    <div class="container">
-      <h2>तुमचं ताजेपण, आमचं सेवेत!</h2>
-      <p>थेट तुमच्या घरी — शुद्ध, नैसर्गिक व ताजे दूध आणि पदार्थ आम्ही तुमच्यासाठी आणतो. प्रत्येक घासात मिळवा घरगुती खुशबू व पाणीपत्ता भाव!...</p>
-    </div>
-  </section>
+  <!-- Hero Section -->
+  <header id="home">
+    <img src="img/logo.jpg" alt="Logo">
+    <h1>शिवशंभु सहकारी दूध उत्पादक व प्रक्रिया संघ लि.</h1>
+    <h2>चाखेल — त्याला चटक लागेल</h2>
+    <h3>Pure • Natural • Delicious</h3>
+    <a href="#products" class="btn">उत्पादने पाहा</a>
+  </header>
 
   <!-- About Section -->
   <section id="about" class="py-5">
     <div class="container">
-      <h2 class="mb-3">आम्ही कोण?</h2>
-      <p>उत्तम दर्जेचे दूध व दूधाचे पदार्थ मिळवण्यासाठी एकमेव ठिकाण, ★शिवशंभु सहकारी दूध उत्पादक व प्रक्रिया संघ लि★</p>
-      <p>आमच्या इथे शुद्ध गाईचे व म्हशीचे दूध, ताजे पनीर, दही, ताक, श्रीखंड, आंबा बर्फी, आम्रखंड, बासुंदी, लस्सी, तूप, पेढा, मोदक आणि इतर पदार्थ मिळतील.</p>
-      <p>◆ "ग्राहकांना चविष्ट व शुद्ध पदार्थ खायला मिळावे, हेच आमचे ध्येय"</p>
-      <p>◆ लवकरात लवकर आमच्या डेयरीला भेट द्या आणि उत्तम पदार्थांचा आस्वाद घ्या.</p>
-      <p>★ आमच्या इथे होम डिलीवरी सुद्धा उपलब्ध आहे.</p>
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <img src="img/image.jpg" class="img-fluid" alt="Dairy Farm" style="max-width:100%;height: auto;">
+        </div>
+        <div class="col-md-6">
+          <h2 class="mb-3"><b>आम्ही कोण? </b></h2>
+          <p>उत्तम दर्जेचे दूध व पदार्थ मिळवण्यासाठी एकमेव ठिकाण – </p>
+           <p> ★ शिवशंभु सहकारी दूध उत्पादक व प्रक्रिया संघ ★</p>
+          <p>शुद्ध गाई-म्हशीचं दूध, पनीर, दही, ताक, श्रीखंड, आंबा बर्फी, बासुंदी, लस्सी, तूप, पेढा, मोदक आणि अजून बरेच पदार्थ उपलब्ध.</p>
+          <p><strong>✔ आमचं ध्येय:</strong> ग्राहकांना शुद्ध, नैसर्गिक आणि स्वादिष्ट पदार्थ मिळावेत.</p>
+          <p><strong>✔ सुविधा:</strong> होम डिलिव्हरी उपलब्ध.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Products Section -->
-  <section id="products" class="py-5">
+  <section id="products" class="py-5 bg-light">
     <div class="container">
-      <h2 class="text-center mb-4">आमची खास उत्पादने</h2>
+      <h2 class="text-center mb-5"><b>आमची खास उत्पादने </b></h2>
       <div class="row g-4">
+
+       
 
         <!-- Product Cards -->
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -236,7 +246,7 @@
             <img src="img/shrikhand.jpg" class="card-img-top" alt="श्रीखंड">
             <div class="card-body">
               <h5 class="card-title">श्रीखंड</h5>
-              <p class="card-text">शुद्ध आणि घरगुती श्रीखंड! दहीपासून तयार केलेला, नैसर्गिक स्वाद आणि क्रीमी टेक्सचर. हापूस आंबा, केशर, वेलची सारखे नैसर्गिक फ्लेव्हर्स.</p>
+              <p class="card-text">शुद्ध  श्रीखंड! दहीपासून तयार केलेला, नैसर्गिक स्वाद आणि क्रीमी टेक्सचर. हापूस आंबा, केशर, वेलची सारखे नैसर्गिक फ्लेव्हर्स.</p>
             </div>
           </div>
         </div>
@@ -253,36 +263,22 @@
 
       </div>
     </div>
-  </section>
+         </section>
 
-  <!-- Footer -->
+  <!-- Contact / Footer -->
   <footer id="contact">
     <div class="container">
       <h2>संपर्क</h2>
-      <p><strong>📞 बुकिंग/डिलिव्हरी संपर्क: 8087238770</strong></p>
-      <p><strong>📍 पत्ता: मु.पो. दौलतनगर, ता. पाटण, जि. सातारा-४१५२११</strong></p>
+      <p><strong>📞 बुकिंग/डिलिव्हरी: 8087238770</strong></p>
+      <p><strong>📧 ई-मेल :shivshambhumilkgmail.com</strong></p>
+      <p><strong>📍 पत्ता:</strong> मु.पो. दौलतनगर, ता. पाटण, जि. सातारा-४१५२११</p>
+      
+        
+      
     </div>
   </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Scroll fade-in script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll(".card");
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.2 });
-
-      cards.forEach(card => observer.observe(card));
-    });
-  </script>
-
 </body>
 </html>
